@@ -6,7 +6,7 @@ Este proyecto incluye documentación estática en la carpeta `learning/`. Para v
 
 1. Instala Node.js (si no lo tienes):
    - https://nodejs.org/
-2. Abre una terminal en la carpeta del proyecto (`c:\Users\Melina\Desktop\Learning-Java`).
+2. Abre una terminal en la carpeta del proyecto 
 3. Instala docsify-cli globalmente:
    - `npm install -g docsify-cli`
 4. Inicia el servidor local:
