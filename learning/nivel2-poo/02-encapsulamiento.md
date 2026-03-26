@@ -182,6 +182,34 @@ public final class CalificacionFinal {
 
 ---
 
+## `enum` para valores fijos
+
+Cuando un dato tiene un conjunto cerrado de opciones, `enum` ayuda a evitar errores de texto libre.
+
+```java
+public enum EstadoAcademico {
+    APROBADO,
+    DESAPROBADO,
+    REGULAR
+}
+
+public class Estudiante {
+    private EstadoAcademico estado = EstadoAcademico.REGULAR;
+
+    public void aprobar() {
+        this.estado = EstadoAcademico.APROBADO;
+    }
+
+    public EstadoAcademico getEstado() {
+        return estado;
+    }
+}
+```
+
+> **Idea clave:** usa `enum` cuando quieres opciones fijas como estados, tipos o categorías.
+
+---
+
 ## Records (Java 16+)
 
 Java 16 introdujo los **Records**, que son clases inmutables de datos con sintaxis concisa:

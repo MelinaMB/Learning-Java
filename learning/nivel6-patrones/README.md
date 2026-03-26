@@ -18,6 +18,7 @@ de diseño de software. No son código concreto sino plantillas de solución.
 | 1 | [Patrones Creacionales](01-creacionales.md) |
 | 2 | [Patrones Estructurales](02-estructurales.md) |
 | 3 | [Patrones de Comportamiento](03-comportamiento.md) |
+| - | [Ejercicios](ejercicios.md) |
 
 ## Tiempo estimado
 

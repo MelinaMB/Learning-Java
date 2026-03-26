@@ -178,6 +178,24 @@ try (ObjectInputStream ois = new ObjectInputStream(
 
 ---
 
+## Expresiones regulares (Regex)
+
+Las expresiones regulares sirven para validar y buscar patrones de texto.
+
+```java
+String email = "ana.garcia@escuela.com";
+boolean esValido = email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
+System.out.println(esValido); // true
+
+String texto = "Curso2024";
+String soloNumeros = texto.replaceAll("\\D", "");
+System.out.println(soloNumeros); // 2024
+```
+
+> **Idea clave:** usa regex cuando necesitas validar formatos como emails, códigos o teléfonos.
+
+---
+
 ## Resumen
 
 | Concepto | API | Descripción |

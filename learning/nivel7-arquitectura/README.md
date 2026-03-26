@@ -11,6 +11,7 @@ organizan sus componentes, cómo se comunican y cuáles son sus responsabilidade
 | 2 | [MVC y MVP](02-mvc-mvp.md) |
 | 3 | [Hexagonal y DDD](03-hexagonal-ddd.md) |
 | 4 | [Microservicios](04-microservicios.md) |
+| - | [Ejercicios](ejercicios.md) |
 
 ## Tiempo estimado
 

@@ -39,12 +39,14 @@
   * [5.1 Clean Code](nivel5-buenas-practicas/01-clean-code.md)
   * [5.2 Principios SOLID](nivel5-buenas-practicas/02-solid.md)
   * [5.3 Refactoring](nivel5-buenas-practicas/03-refactoring.md)
+  * [Ejercicios Nivel 5](nivel5-buenas-practicas/ejercicios.md)
 
 * **Nivel 6 — Patrones de Diseño**
   * [Introducción al Nivel](nivel6-patrones/README.md)
   * [6.1 Patrones Creacionales](nivel6-patrones/01-creacionales.md)
   * [6.2 Patrones Estructurales](nivel6-patrones/02-estructurales.md)
   * [6.3 Patrones de Comportamiento](nivel6-patrones/03-comportamiento.md)
+  * [Ejercicios Nivel 6](nivel6-patrones/ejercicios.md)
 
 * **Nivel 7 — Arquitectura**
   * [Introducción al Nivel](nivel7-arquitectura/README.md)
@@ -52,6 +54,7 @@
   * [7.2 MVC y MVP](nivel7-arquitectura/02-mvc-mvp.md)
   * [7.3 Hexagonal y DDD](nivel7-arquitectura/03-hexagonal-ddd.md)
   * [7.4 Microservicios](nivel7-arquitectura/04-microservicios.md)
+  * [Ejercicios Nivel 7](nivel7-arquitectura/ejercicios.md)
 
 * **Nivel 8 — Testing**
   * [Introducción al Nivel](nivel8-testing/README.md)
@@ -65,3 +68,4 @@
   * [9.1 Maven](nivel9-ecosistema/01-maven.md)
   * [9.2 Spring Boot Introducción](nivel9-ecosistema/02-spring-boot-intro.md)
   * [9.3 Bases de Datos con Java](nivel9-ecosistema/03-bases-datos.md)
+  * [Ejercicios Nivel 9](nivel9-ecosistema/ejercicios.md)

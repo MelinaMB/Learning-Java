@@ -17,13 +17,13 @@ Modelamos el mundo real en **objetos** que tienen **estado** (atributos) y **com
 | # | Tema | Descripción |
 |---|------|-------------|
 | 1 | [Clases y Objetos](01-clases-objetos.md) | Crear y usar tus propias clases |
-| 2 | [Encapsulamiento](02-encapsulamiento.md) | Modificadores de acceso, getters/setters |
+| 2 | [Encapsulamiento](02-encapsulamiento.md) | Modificadores de acceso, getters/setters, `record`, paquetes |
 | 3 | [Herencia y Polimorfismo](03-herencia-polimorfismo.md) | `extends`, `super`, override |
-| 4 | [Interfaces y Clases Abstractas](04-interfaces-abstractas.md) | Contratos y abstracción |
+| 4 | [Interfaces y Clases Abstractas](04-interfaces-abstractas.md) | Contratos, abstracción y `default` |
 | - | [Ejercicios](ejercicios.md) | Práctica del nivel |
 
 ## Tiempo estimado
 
 **3 a 4 semanas** dedicando 1-2 horas diarias.
 
-¡Comenzemos con [Clases y Objetos](01-clases-objetos.md)!
+¡Comencemos con [Clases y Objetos](01-clases-objetos.md)!

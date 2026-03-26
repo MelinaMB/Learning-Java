@@ -239,6 +239,39 @@ CompletableFuture<List<Estudiante>> primero = CompletableFuture.anyOf(futuro1, f
 
 ---
 
+## `volatile` y visibilidad entre hilos
+
+Cuando varios hilos leen y escriben la misma variable, `volatile` ayuda a que todos vean el valor más reciente.
+
+```java
+public class BanderaCompartida {
+    private volatile boolean ejecutando = true;
+
+    public void detener() {
+        ejecutando = false;
+    }
+
+    public void loop() {
+        while (ejecutando) {
+            // trabajo en segundo plano
+        }
+    }
+}
+```
+
+> **Idea clave:** `volatile` no reemplaza la sincronización compleja, pero sí ayuda con banderas simples y visibilidad.
+
+---
+
+## Resumen de seguridad básica
+
+- Usa `ExecutorService` para manejar hilos con más orden.
+- Usa `synchronized` o locks cuando varias operaciones deben ser atómicas.
+- Usa `volatile` para señales simples entre hilos.
+- Evita compartir estado mutable sin control.
+
+---
+
 ## Resumen
 
 | Concepto | Descripción |

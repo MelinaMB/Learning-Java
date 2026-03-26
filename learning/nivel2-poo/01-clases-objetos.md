@@ -219,6 +219,39 @@ String texto = "El estudiante es: " + ana; // también llama toString()
 
 ---
 
+## `equals()` y `hashCode()`
+
+`equals()` compara si dos objetos representan lo mismo. `hashCode()` ayuda a que Java los encuentre bien en estructuras como `HashSet` o `HashMap`.
+
+```java
+public class Estudiante {
+    private int legajo;
+    private String nombre;
+
+    public Estudiante(int legajo, String nombre) {
+        this.legajo = legajo;
+        this.nombre = nombre;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Estudiante)) return false;
+        Estudiante otro = (Estudiante) obj;
+        return legajo == otro.legajo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(legajo);
+    }
+}
+```
+
+> **Idea clave:** si dos objetos deben considerarse iguales por su contenido, conviene sobrescribir ambos métodos juntos.
+
+---
+
 ## Atributos y métodos estáticos
 
 Los miembros `static` pertenecen a la **clase**, no a los objetos individuales.

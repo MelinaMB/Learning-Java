@@ -152,6 +152,26 @@ mi-proyecto/
 
 ---
 
+## `package` e `import`
+
+Los paquetes sirven para organizar clases relacionadas y evitar nombres repetidos.
+El `import` te permite usar clases de otros paquetes sin escribir el nombre completo.
+
+```java
+package com.escuela.modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Curso {
+    private List<String> estudiantes = new ArrayList<>();
+}
+```
+
+> **Idea clave:** primero organiza el código con `package`, después importa lo que necesitas con `import`.
+
+---
+
 ## Convenciones de nomenclatura desde el principio
 
 | Elemento | Convención | Ejemplo |

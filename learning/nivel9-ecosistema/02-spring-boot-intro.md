@@ -1,7 +1,9 @@
 # 9.2 Spring Boot — Introducción
 
-Spring Boot es el framework Java más popular para construir aplicaciones
-web y APIs REST. Simplifica enormemente la configuración de Spring.
+Spring Boot es el paso final de esta ruta porque junta todo lo aprendido antes:
+Java, POO, colecciones, testing, arquitectura y persistencia.
+
+Su objetivo es hacer más fácil crear aplicaciones web y APIs REST.
 
 ## ¿Qué es Spring?
 
@@ -11,7 +13,42 @@ Spring es un framework que provee:
 - **AOP (Aspect-Oriented Programming)** — para logging, seguridad, transacciones
 - **Módulos** para web, datos, seguridad, mensajería, etc.
 
-Spring Boot agrega configuración automática (auto-configuration) y reduce el boilerplate.
+Spring Boot agrega configuración automática y reduce el código repetitivo.
+
+## Ruta de aprendizaje de Spring Boot
+
+Para que sea fácil de entender, conviene aprenderlo en este orden:
+
+1. Crear un proyecto
+2. Entender `@SpringBootApplication`
+3. Crear un `@RestController`
+4. Usar `@Service` y `@Repository`
+5. Conectar con base de datos
+6. Validar datos
+7. Probar la API
+8. Agregar seguridad básica
+
+---
+
+## Primer ejemplo muy simple
+
+Este es el ejemplo más pequeño posible de una API:
+
+```java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HolaController {
+
+    @GetMapping("/hola")
+    public String saludar() {
+        return "Hola desde Spring Boot";
+    }
+}
+```
+
+Si visitas `/hola`, la API responde un texto simple. Ese es el punto de partida.
 
 ---
 
@@ -65,30 +102,18 @@ Spring gestiona un contenedor de objetos llamado **ApplicationContext**.
 Los objetos gestionados por Spring se llaman **Beans**.
 
 ```java
-// @Component marca una clase como Bean de Spring
-@Component
-public class EstudianteRepositorioImpl implements EstudianteRepositorio {
-    // Spring la instancia y gestiona
+@Repository
+public class EstudianteRepositorio {
+    // Spring la crea y la administra
 }
 
-// @Service — variante semántica de @Component para servicios
 @Service
-public class EstudianteServicioImpl implements EstudianteServicio {
-
-    // @Autowired — Spring inyecta la dependencia automáticamente
+public class EstudianteServicio {
     private final EstudianteRepositorio repositorio;
 
-    // Inyección por constructor (recomendada)
-    @Autowired  // opcional cuando hay un solo constructor
-    public EstudianteServicioImpl(EstudianteRepositorio repositorio) {
+    public EstudianteServicio(EstudianteRepositorio repositorio) {
         this.repositorio = repositorio;
     }
-}
-
-// @Repository — variante de @Component para acceso a datos
-@Repository
-public class EstudianteRepositorioImpl implements EstudianteRepositorio {
-    // Manejo especial de excepciones de persistencia
 }
 ```
 
@@ -98,7 +123,6 @@ public class EstudianteRepositorioImpl implements EstudianteRepositorio {
 
 ```java
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 @RestController                           // @Controller + @ResponseBody
@@ -117,49 +141,15 @@ public class EstudianteController {
         return servicio.listarTodos();
     }
 
-    // GET /api/estudiantes/1001
-    @GetMapping("/{legajo}")
-    public ResponseEntity<Estudiante> obtener(@PathVariable int legajo) {
-        return servicio.buscar(legajo)
-            .map(ResponseEntity::ok)
-            .orElse(ResponseEntity.notFound().build());
-    }
-
     // POST /api/estudiantes
     @PostMapping
-    public ResponseEntity<Estudiante> crear(@RequestBody EstudianteDTO dto) {
-        Estudiante nuevo = servicio.registrar(dto.getNombre(), dto.getApellido(),
-            dto.getEmail(), dto.getCarrera());
-        return ResponseEntity.status(201).body(nuevo);
-    }
-
-    // PUT /api/estudiantes/1001
-    @PutMapping("/{legajo}")
-    public ResponseEntity<Estudiante> actualizar(@PathVariable int legajo,
-                                                   @RequestBody EstudianteDTO dto) {
-        try {
-            Estudiante actualizado = servicio.actualizar(legajo, dto);
-            return ResponseEntity.ok(actualizado);
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    // DELETE /api/estudiantes/1001
-    @DeleteMapping("/{legajo}")
-    public ResponseEntity<Void> eliminar(@PathVariable int legajo) {
-        servicio.darDeBaja(legajo);
-        return ResponseEntity.noContent().build();
-    }
-
-    // GET /api/estudiantes?carrera=Sistemas
-    @GetMapping
-    public List<Estudiante> buscar(@RequestParam(required = false) String carrera) {
-        if (carrera != null) return servicio.buscarPorCarrera(carrera);
-        return servicio.listarTodos();
+    public Estudiante crear(@RequestBody Estudiante estudiante) {
+        return servicio.guardar(estudiante);
     }
 }
 ```
+
+> **Idea clave:** primero aprendé a responder un texto, después una lista de objetos, y por último operaciones CRUD completas.
 
 ---
 
@@ -189,6 +179,8 @@ spring.h2.console.enabled=true
 # Log level
 logging.level.com.escuela=DEBUG
 ```
+
+Con esta configuración ya podés arrancar una aplicación simple y verla en el navegador o en Postman.
 
 ---
 
@@ -253,15 +245,6 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Integer>
     List<Estudiante> findByActivoTrue();
     List<Estudiante> findByPromedioGreaterThanEqual(double promedio);
     List<Estudiante> findByNombreContainingIgnoreCase(String nombre);
-
-    // Query personalizada con JPQL
-    @Query("SELECT e FROM Estudiante e WHERE e.promedio >= :min AND e.carrera = :carrera")
-    List<Estudiante> buscarAprobadosPorCarrera(double min, String carrera);
-
-    // Query nativa SQL
-    @Query(value = "SELECT * FROM estudiantes WHERE activo = true ORDER BY promedio DESC LIMIT 10",
-           nativeQuery = true)
-    List<Estudiante> top10PorPromedio();
 }
 
 // El servicio usa el repositorio
@@ -318,5 +301,25 @@ public class SistemaEscolarApplication {
 | `@RequestBody` | Cuerpo de la petición JSON |
 | `@Entity` | Clase mapeada a tabla |
 | `JpaRepository` | Operaciones CRUD automáticas |
+
+## Ejercicios de Spring Boot
+
+### Ejercicio 1
+Crear un endpoint `GET /saludo` que devuelva un texto simple.
+
+### Ejercicio 2
+Crear un `POST /estudiantes` que reciba un estudiante y lo devuelva.
+
+### Ejercicio 3
+Crear un repositorio con `JpaRepository` para listar estudiantes.
+
+### Ejercicio 4
+Agregar validaciones simples al estudiante con `@NotNull` y `@Email`.
+
+### Ejercicio 5
+Armar una mini API del sistema escolar con:
+- estudiantes
+- cursos
+- inscripciones
 
 **Siguiente:** [9.3 Bases de Datos con Java](03-bases-datos.md)

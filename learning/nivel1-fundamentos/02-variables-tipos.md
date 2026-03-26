@@ -102,6 +102,21 @@ System.out.println(s1.equalsIgnoreCase("HOLA")); // true
 > **Error común:** Nunca compares Strings con `==`. Usa siempre `.equals()`.
 > El operador `==` compara referencias de memoria, no el contenido.
 
+### `StringBuilder` para texto que cambia
+
+Cuando vas a construir texto paso a paso, `StringBuilder` suele ser más claro y eficiente que concatenar muchas veces con `+`.
+
+```java
+StringBuilder sb = new StringBuilder();
+sb.append("Estudiante: ");
+sb.append("Ana García");
+sb.append(" - ");
+sb.append("Curso: Programación I");
+
+System.out.println(sb.toString());
+// Estudiante: Ana García - Curso: Programación I
+```
+
 ### Métodos importantes de String
 
 ```java
@@ -135,6 +150,24 @@ for (String n : partes) {
 String info = String.format("Estudiante: %s, Nota: %.2f", "Ana", 8.5);
 System.out.println(info); // "Estudiante: Ana, Nota: 8.50"
 ```
+
+---
+
+## `BigDecimal` para valores exactos
+
+Para dinero o cálculos donde la precisión importa, `BigDecimal` es mejor que `double`.
+
+```java
+import java.math.BigDecimal;
+
+BigDecimal cuota1 = new BigDecimal("1250.50");
+BigDecimal cuota2 = new BigDecimal("300.25");
+
+BigDecimal total = cuota1.add(cuota2);
+System.out.println(total); // 1550.75
+```
+
+> **Regla simple:** usa `double` para aprendizaje general y `BigDecimal` cuando no quieras errores de redondeo.
 
 ---
 

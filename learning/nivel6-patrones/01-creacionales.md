@@ -61,7 +61,6 @@ System.out.println(config == config2); // true
 decidir qué clase instanciar.
 
 ```java
-// Producto
 public interface Notificacion {
     void enviar(String destinatario, String mensaje);
     String getTipo();
@@ -95,7 +94,6 @@ public class NotificacionPush implements Notificacion {
     public String getTipo() { return "PUSH"; }
 }
 
-// Fábrica
 public class NotificacionFactory {
     public static Notificacion crear(String tipo) {
         return switch (tipo.toUpperCase()) {
@@ -111,7 +109,6 @@ public class NotificacionFactory {
 Notificacion n = NotificacionFactory.crear("EMAIL");
 n.enviar("ana@mail.com", "Examen mañana a las 9:00");
 
-// Fácil agregar nuevos tipos sin cambiar código existente
 ```
 
 ---
@@ -129,7 +126,7 @@ public class Estudiante {
     private final String nombre;
     private final String apellido;
     private final String dni;
-
+    
     // Atributos opcionales
     private final String email;
     private final String telefono;
@@ -168,7 +165,7 @@ public class Estudiante {
         private final String nombre;
         private final String apellido;
         private final String dni;
-
+        
         // Opcionales con valores por defecto
         private String email = "";
         private String telefono = "";
