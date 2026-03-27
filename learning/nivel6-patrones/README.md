@@ -3,6 +3,19 @@
 Los patrones de diseño son **soluciones reutilizables** a problemas comunes
 de diseño de software. No son código concreto sino plantillas de solución.
 
+```mermaid
+flowchart TD
+    creacionales[Creacionales] --> singleton[Singleton]
+    creacionales --> factory[Factory]
+    creacionales --> builder[Builder]
+    estructurales[Estructurales] --> adapter[Adapter]
+    estructurales --> decorator[Decorator]
+    comportamiento[Comportamiento] --> strategy[Strategy]
+    comportamiento --> observer[Observer]
+```
+
+Este mapa te ayuda a ubicar cada patrón antes de estudiar el detalle.
+
 ## Categorías
 
 | Categoría | Descripción | Patrones |

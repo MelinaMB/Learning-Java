@@ -61,10 +61,34 @@ y creciente a medida que avanzas de nivel.
 
 ---
 
+## Recursos de apoyo
+
+- [Glosario Java](glosario.md) — términos básicos y del ecosistema.
+- [Errores Comunes](errores-comunes.md) — cosas que conviene evitar.
+- [Guía de Estilo](guia-de-estilo.md) — cómo escribir ejemplos claros.
+- [Depuración](depuracion.md) — cómo leer y resolver errores.
+- [Guía de VS Code](vscode-setup.md) — IDE recomendado y extensiones.
+- [Mapa de Aprendizaje](mapa-de-aprendizaje.md) — orden sugerido de estudio.
+- [Autoevaluaciones](autoevaluaciones.md) — preguntas para medir progreso.
+- [Repaso Rápido](repaso-rapido.md) — ruta corta de repaso.
+- [Buenas Prácticas de Estudio](buenas-practicas-estudio.md) — cómo estudiar mejor.
+- [Repaso en 7 Días](repaso-7-dias.md) — plan corto para retomar la guía.
+- [Git para Java](git-para-java.md) — uso básico de Git en el learning.
+- [Proyectos Finales](proyectos-finales.md) — mini metas por nivel y cierre general.
+- [Soluciones Guiadas](soluciones-guiadas.md) — apoyo para comparar tu enfoque.
+
+---
+
+## Licencia
+
+Este material se publica bajo licencia `MIT`. Puedes reutilizarlo y compartirlo siempre que conserves la atribución al repositorio.
+
+---
+
 ## Requisitos Previos
 
 - **Java JDK 17 o superior** instalado ([Descargar](https://adoptium.net/))
-- **Un IDE** — recomendamos IntelliJ IDEA Community (gratis) o VS Code con extensión Java
+- **Un IDE** — preferimos VS Code con las extensiones recomendadas en la guía
 - **Ganas de aprender** — la constancia es más importante que el talento
 
 ---

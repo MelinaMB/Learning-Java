@@ -4,6 +4,15 @@ La arquitectura de capas organiza el sistema en capas horizontales donde
 cada capa tiene una responsabilidad específica y solo se comunica con
 la capa inmediatamente inferior.
 
+```mermaid
+flowchart TD
+    ui[Presentación / UI] --> service[Servicio / Negocio]
+    service --> data[Acceso a Datos]
+    data --> infra[Infraestructura / Modelo]
+```
+
+La idea es simple: cada capa conoce solo la siguiente, y eso hace el sistema más fácil de mantener.
+
 ## Las Capas Típicas
 
 ```

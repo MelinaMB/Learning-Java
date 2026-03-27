@@ -16,3 +16,11 @@ Este proyecto incluye documentación estática en la carpeta `learning/`. Para v
 
 > Cambia el puerto con `--port <puerto>` si ya está ocupado.
 
+## Qué incluye la guía
+
+- Ruta completa desde fundamentos hasta Spring Boot.
+- Ejemplos simples y progresivos.
+- Ejercicios al final de cada nivel.
+- Glosario, errores comunes, proyectos finales y herramientas de apoyo.
+- Licencia `MIT` para reutilización con atribución del repositorio.
+

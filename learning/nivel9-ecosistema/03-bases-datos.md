@@ -26,6 +26,15 @@ Conectar Java a una base de datos es una habilidad fundamental. Veremos desde el
 
 **JDBC** (Java Database Connectivity) es la API estándar de Java para conectarse a bases de datos relacionales. Es de bajo nivel pero importante entenderla.
 
+```mermaid
+flowchart TD
+    code[Tu código Java] --> jdbc[JDBC API]
+    jdbc --> driver[Driver de BD]
+    driver --> database[(Base de datos)]
+```
+
+El recorrido siempre es el mismo: tu código habla con JDBC, JDBC usa el driver y el driver se comunica con la base.
+
 ```
 Tu código Java
       ↓
@@ -545,6 +554,15 @@ public class EstudianteService {
 ## JPA e Hibernate — ORM {#jpa-hibernate}
 
 **JPA** (Jakarta Persistence API) es una especificación para mapear objetos Java a tablas de base de datos. **Hibernate** es la implementación más popular.
+
+```mermaid
+flowchart TD
+    entity[Entidad Java] --> jpa[JPA / Hibernate]
+    jpa --> sql[SQL generado]
+    sql --> db[(Base de datos)]
+```
+
+Con JPA trabajas con objetos, y el framework se encarga del SQL por debajo.
 
 ### ¿Por qué usar ORM?
 

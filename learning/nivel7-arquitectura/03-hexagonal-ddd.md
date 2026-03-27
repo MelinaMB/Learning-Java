@@ -6,6 +6,16 @@ Propuesta por Alistair Cockburn. El objetivo es que la lógica de negocio
 (el "núcleo") sea completamente **independiente** de las tecnologías externas
 (base de datos, interfaz web, servicios externos).
 
+```mermaid
+flowchart TD
+    primary[Adaptadores primarios] --> portIn[Port In]
+    portIn --> core[Núcleo del dominio]
+    core --> portOut[Port Out]
+    portOut --> secondary[Adaptadores secundarios]
+```
+
+La idea central es que el núcleo no sepa nada de la tecnología que lo rodea.
+
 ```
                     [REST API]  [Consola]  [Tests]
                          |          |         |

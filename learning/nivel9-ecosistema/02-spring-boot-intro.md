@@ -15,6 +15,20 @@ Spring es un framework que provee:
 
 Spring Boot agrega configuración automática y reduce el código repetitivo.
 
+```mermaid
+flowchart TD
+    browser[Navegador o Postman] --> controller[RestController]
+    controller --> service[Service]
+    service --> repository[Repository]
+    repository --> db[(Base de datos)]
+    db --> repository
+    repository --> service
+    service --> controller
+    controller --> browser
+```
+
+Este flujo resume la idea de Spring Boot: una petición entra, pasa por capas simples y vuelve como respuesta.
+
 ## Ruta de aprendizaje de Spring Boot
 
 Para que sea fácil de entender, conviene aprenderlo en este orden:
@@ -245,6 +259,15 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Integer>
     List<Estudiante> findByActivoTrue();
     List<Estudiante> findByPromedioGreaterThanEqual(double promedio);
     List<Estudiante> findByNombreContainingIgnoreCase(String nombre);
+
+    // Query personalizada con JPQL
+    @Query("SELECT e FROM Estudiante e WHERE e.promedio >= :min AND e.carrera = :carrera")
+    List<Estudiante> buscarAprobadosPorCarrera(double min, String carrera);
+
+    // Query nativa SQL
+    @Query(value = "SELECT * FROM estudiantes WHERE activo = true ORDER BY promedio DESC LIMIT 10",
+           nativeQuery = true)
+    List<Estudiante> top10PorPromedio();
 }
 
 // El servicio usa el repositorio

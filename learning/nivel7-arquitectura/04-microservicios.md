@@ -4,6 +4,17 @@ Los microservicios son un estilo arquitectónico donde la aplicación se constru
 como un conjunto de **servicios pequeños e independientes**, cada uno ejecutándose
 en su propio proceso y comunicándose mediante APIs ligeras (REST/HTTP, mensajería).
 
+```mermaid
+flowchart TD
+    client[Cliente] --> gateway[API Gateway]
+    gateway --> estudiantes[Estudiante Service]
+    gateway --> cursos[Curso Service]
+    gateway --> notas[Notas Service]
+    gateway --> notificaciones[Notificaciones Service]
+```
+
+Cada servicio tiene su responsabilidad y su base de datos, si aplica.
+
 ## Monolito vs Microservicios
 
 ```

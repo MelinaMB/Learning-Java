@@ -5,6 +5,14 @@ Un buen conjunto de tests da confianza para refactorizar y agregar funcionalidad
 
 ## Pirámide de Testing
 
+```mermaid
+flowchart TD
+    e2e[E2E / Integración] --> integration[Tests de Integración]
+    integration --> unit[Unit Tests]
+```
+
+La regla es simple: muchos tests unitarios, menos de integración y muy pocos E2E.
+
 ```
          /\
         /  \       E2E / Integración

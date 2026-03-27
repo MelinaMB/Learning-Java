@@ -3,6 +3,18 @@
 La concurrencia permite que múltiples tareas se ejecuten de forma simultánea
 (o aparentemente simultánea), mejorando el rendimiento de las aplicaciones.
 
+```mermaid
+flowchart TD
+    mainThread[Main Thread] --> task1[Tarea 1]
+    mainThread --> task2[Tarea 2]
+    mainThread --> task3[Tarea 3]
+    task1 --> result1[Resultado]
+    task2 --> result2[Resultado]
+    task3 --> result3[Resultado]
+```
+
+Este dibujo muestra la idea principal: una tarea principal reparte trabajo a varios hilos y luego reúne resultados.
+
 ## Threads (Hilos)
 
 Un hilo es la unidad más pequeña de ejecución. Java soporta multithreading nativamente.
